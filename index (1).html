@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- EDIT: title and description shown on Google -->
+<title>Zaki Nuhan | Quality Assurance Engineer</title>
+<meta name="description" content="Portfolio of Zaki Nuhan, Quality Assurance Engineer with 5+ years of experience in manual testing, API testing, and game testing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script>
+try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}
+</script>
+<style>
+:root{
+  --bg:#f5f7fa; --surface:#ffffff; --ink:#14213d; --muted:#55627a; --line:#dde3ec;
+  --accent:#2b59ff; --pass:#1a8f4d; --fail:#c93c3c;
+  --head:"Bricolage Grotesque","Trebuchet MS",sans-serif;
+  --body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1424; --surface:#161e33; --ink:#eaf0ff; --muted:#9aa8c7; --line:#27324f;
+    --accent:#7c9bff; --pass:#4cc38a; --fail:#ff7b7b; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1424; --surface:#161e33; --ink:#eaf0ff; --muted:#9aa8c7; --line:#27324f;
+  --accent:#7c9bff; --pass:#4cc38a; --fail:#ff7b7b; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.65 var(--body)}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:30;background:var(--bg);display:flex;gap:20px;justify-content:flex-end;padding:12px 0;font-weight:500;border-bottom:1px solid transparent;transition:border-color .2s}
+nav.scrolled{border-bottom-color:var(--line)}
+nav a{color:var(--muted);text-decoration:none}
+nav a:hover{color:var(--ink)}
+#theme-toggle{position:relative;width:134px;height:36px;padding:0;border-radius:99px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;font:500 .85rem var(--body)}
+#theme-toggle:hover{border-color:var(--accent)}
+#theme-toggle{flex:none}
+#theme-toggle .thumb{position:absolute;top:3px;left:3px;width:27px;height:27px;border-radius:50%;background:var(--ink);color:var(--bg);display:flex;align-items:center;justify-content:center}
+#theme-toggle.ready .thumb{transition:transform .25s}
+#theme-toggle .thumb svg{width:15px;height:15px}
+#theme-toggle .lbl{position:absolute;top:0;bottom:0;display:flex;align-items:center;justify-content:center;white-space:nowrap}
+#theme-toggle .lbl-dark{left:34px;right:6px}
+#theme-toggle .lbl-light{left:6px;right:34px;display:none}
+#theme-toggle .thumb .sun{display:none}
+#theme-toggle[aria-checked="true"] .thumb{transform:translateX(98px)}
+#theme-toggle[aria-checked="true"] .lbl-dark,#theme-toggle[aria-checked="true"] .thumb .moon{display:none}
+#theme-toggle[aria-checked="true"] .lbl-light{display:flex}
+#theme-toggle[aria-checked="true"] .thumb .sun{display:block}
+@media (prefers-reduced-motion:reduce){#theme-toggle.ready .thumb{transition:none}}
+nav{align-items:center}
+h1,h2,h3{font-family:var(--head);line-height:1.15;margin:0}
+h1{font-size:clamp(2.2rem,6vw,3.6rem);font-weight:800;max-width:15ch}
+h2{font-size:1.8rem;font-weight:800;margin-bottom:20px}
+h3{font-size:1.1rem;font-weight:600;margin-bottom:6px}
+section{padding:56px 0;border-top:1px solid var(--line);scroll-margin-top:72px}
+.hero{display:grid;gap:32px;grid-template-columns:1.1fr 1fr;align-items:center;padding:36px 0 64px}
+.hero p{color:var(--muted);max-width:46ch;margin:16px 0 24px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:8px;font-weight:600;text-decoration:none;margin:0 10px 10px 0}
+.btn.primary{background:var(--accent);color:#fff}
+:root[data-theme="dark"] .btn.primary{color:#0e1424}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn.primary{color:#0e1424}}
+.btn.ghost{border:1.5px solid var(--line);color:var(--ink)}
+/* panel hasil tes di hero */
+.run{background:var(--surface);border:1px solid var(--line);border-radius:12px;font:500 .9rem/1.5 ui-monospace,Menlo,Consolas,monospace;overflow:hidden}
+.run header{padding:10px 16px;border-bottom:1px solid var(--line);color:var(--muted)}
+.run ul{list-style:none;margin:0;padding:8px 0}
+.run li{padding:6px 16px;display:flex;gap:10px}
+.run .ok{color:var(--pass)} .run .bad{color:var(--fail)}
+.run footer{padding:10px 16px;border-top:1px solid var(--line);color:var(--pass);font-weight:600}
+.cols{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px}
+.card p{margin:0 0 10px;color:var(--muted)}
+.card ul{margin:0;padding-left:18px}.card li{margin-bottom:6px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;padding:0;list-style:none;margin:0}
+.tags li{border:1px solid var(--line);background:var(--surface);padding:4px 12px;border-radius:99px;font-size:.9rem}
+.bug{border-left:4px solid var(--fail)}
+.bug dl{display:grid;grid-template-columns:140px 1fr;gap:8px 14px;margin:12px 0 0}
+.bug ol{margin:0;padding-left:18px}
+.sev{display:inline-block;padding:1px 10px;border-radius:99px;font-weight:600;font-size:.9rem;border:1px solid currentColor}
+.sev.high{color:var(--fail)} .sev.mid{color:#b7791f}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .sev.mid{color:#e8b04a}}
+:root[data-theme="dark"] .sev.mid{color:#e8b04a}
+@media (max-width:720px){.bug dl{grid-template-columns:1fr;gap:2px}.bug dd{margin-bottom:10px}}
+.bug dt{color:var(--muted)} .bug dd{margin:0}
+.scroll{overflow-x:auto}
+footer.site{padding:32px 0 48px;color:var(--muted);border-top:1px solid var(--line)}
+@media (max-width:720px){.hero{grid-template-columns:1fr}nav{justify-content:flex-start;overflow-x:auto;white-space:nowrap;gap:16px}#theme-toggle{order:-1}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.card--wip{position:relative;overflow:hidden;cursor:not-allowed}
+.card--wip .card__content{opacity:.45;filter:grayscale(.6);pointer-events:none;user-select:none}
+.wip-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;background:repeating-linear-gradient(-45deg,rgba(0,0,0,.04),rgba(0,0,0,.04) 10px,rgba(0,0,0,.08) 10px,rgba(0,0,0,.08) 20px)}
+.wip-stamp{transform:rotate(-12deg);padding:.5rem 1rem;border:3px dashed var(--fail);border-radius:8px;color:var(--fail);background:var(--surface);font-weight:800;font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase;text-align:center;max-width:85%;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.cols.one{grid-template-columns:1fr}
+.tc{width:100%;min-width:760px;border-collapse:collapse;font-size:.92rem;margin-top:10px}
+.tc th,.tc td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+.tc th{color:var(--muted);font-weight:600}
+.pill{display:inline-block;padding:1px 10px;border-radius:99px;font-weight:600;font-size:.85rem;border:1px solid currentColor;white-space:nowrap}
+.pill.pass{color:var(--pass)} .pill.fail{color:var(--fail)}
+.btn svg{width:18px;height:18px;flex:none}
+#to-top{position:fixed;right:20px;bottom:20px;z-index:40;width:46px;height:46px;border-radius:50%;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.18);opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .2s,transform .2s,visibility .2s}
+#to-top.show{opacity:1;visibility:visible;transform:none}
+#to-top:hover{border-color:var(--accent)}
+#to-top svg{width:20px;height:20px}
+@media (prefers-reduced-motion:reduce){#to-top,nav{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav aria-label="Main navigation">
+  <a href="#about">About</a>
+  <a href="#experience">Experience</a>
+  <a href="#education">Education</a>
+  <a href="#skill">Skill</a>
+  <a href="#projects">Projects</a>
+  <a href="#testcases">Test cases</a>
+  <a href="#bug">Bug report</a>
+  <a href="#contact">Contact</a>
+  <button id="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Dark mode">
+    <span class="thumb" aria-hidden="true">
+      <svg class="moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </span>
+    <span class="lbl lbl-dark" aria-hidden="true">Dark mode</span>
+    <span class="lbl lbl-light" aria-hidden="true">Light mode</span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div>
+    <!-- EDIT: name and title -->
+    <h1>Zaki Nuhan, a QA Engineer who finds bugs before users do.</h1>
+    <p>Over 5 years in manual testing, web app testing, and game testing. Now building web automation skills with Playwright and Python.</p>
+    <!-- EDIT: paste your Google Drive share link here -->
+    <a class="btn primary" href="https://drive.google.com/file/d/1Hoz3K-4dSxwDCkP-7Udb22QmCVHccSSS/view?usp=sharing" target="_blank" rel="noopener">📄 View my CV</a>
+    <a class="btn ghost" href="#contact">Get in touch</a>
+  </div>
+  <!-- EDIT: this test output is decorative, change freely -->
+  <div class="run" role="img" aria-label="Sample test run: 3 passed, 1 failed and reported">
+    <header>$ pytest tests/</header>
+    <ul>
+      <li><span class="ok">PASS</span> login with valid account</li>
+      <li><span class="ok">PASS</span> contact form submits</li>
+      <li><span class="ok">PASS</span> mobile layout at 375px</li>
+      <li><span class="bad">FAIL</span> empty email validation (bug #12)</li>
+    </ul>
+    <footer>Bug reported, ready to fix.</footer>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2><span aria-hidden="true">👤</span> About me</h2>
+  <p style="max-width:62ch">Quality Assurance Engineer with over 5 years of experience in software quality assurance and customer-facing support. Experienced in manual testing, API testing, regression testing, and bug tracking, working with cross-functional teams to improve product quality and user experience.</p>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <h2><span aria-hidden="true">💼</span> Experience</h2>
+  <div class="cols">
+    <article class="card">
+      <h3>Customer Success Consultant</h3>
+      <p>amalan international indonesia, March 2025 to present</p>
+      <ul>
+        <li>Responded to client inquiries and maintained relationships with existing clients.</li>
+        <li>Reported recurring issues and user feedback to the QA and Development teams.</li>
+        <li>Recommended process improvements together with the Operations team.</li>
+      </ul>
+    </article>
+    <article class="card">
+      <h3>Quality Assurance Engineer</h3>
+      <p>amalan international indonesia, March 2022 to March 2025</p>
+      <ul>
+        <li>Manual testing of web applications, API testing, and SQL validation for data integrity.</li>
+        <li>Designed and maintained test plans and test cases; conducted UAT.</li>
+        <li>Assisted with ISO 9001:2015 and ISO 27001:2013 documentation.</li>
+        <li>Worked with developers to resolve defects before release.</li>
+      </ul>
+    </article>
+    <article class="card">
+      <h3>Quality Assurance Game Tester</h3>
+      <p>Gameloft Indonesia, July 2018 to July 2020</p>
+      <ul>
+        <li>Key projects: Dungeon Hunter Champions and Sniper Fury.</li>
+        <li>Pre-release testing on Windows, Android, and iOS, including in-app purchases and ads.</li>
+        <li>Tested game mechanics, rendering performance, and asset integration in Unreal Engine.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <h2><span aria-hidden="true">🎓</span> Education</h2>
+  <div class="cols">
+    <article class="card">
+      <h3>Diploma in Management Informatika</h3>
+      <p>Universitas AMIKOM Yogyakarta</p>
+      <p>September 2013 to October 2017</p>
+    </article>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skill">
+  <h2><span aria-hidden="true">🛠️</span> Skill</h2>
+  <ul class="tags">
+    <li>Software testing</li><li>Manual testing</li><li>Functional testing</li>
+    <li>Non-functional testing</li><li>Web &amp; mobile testing</li>
+    <li>Bug reporting &amp; tracking</li><li>Test planning &amp; test cases (Jira, Trello)</li>
+    <li>API testing (Insomnia)</li><li>SQL validation (DBeaver)</li>
+    <li>Playwright &amp; Python (learning)</li><li>Problem-solving</li><li>Teamwork</li>
+  </ul>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <h2><span aria-hidden="true">🚀</span> Projects</h2>
+  <div class="cols">
+    <!-- EDIT: replace the GitHub links after you create the repositories -->
+    <article class="card card--wip" aria-disabled="true">
+      <div class="card__content" inert>
+        <h3>Playwright tests for this portfolio website</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+        <a href="-" tabindex="-1">View on GitHub</a>
+      </div>
+      <div class="wip-overlay" role="status">
+        <span class="wip-stamp">Still cooking! Check back shortly.</span>
+      </div>
+    </article>
+
+    <article class="card card--wip" aria-disabled="true">
+      <div class="card__content" inert>
+        <h3>Next project</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+        <a href="-" tabindex="-1">View on GitHub</a>
+      </div>
+      <div class="wip-overlay" role="status">
+        <span class="wip-stamp">Still cooking! Check back shortly.</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- TEST CASES -->
+<section id="testcases">
+  <h2><span aria-hidden="true">🧪</span> Test case samples</h2>
+  <div class="cols one">
+    <article class="card">
+      <h3>Grab app: manual test cases</h3>
+      <div class="scroll">
+      <table class="tc">
+        <thead><tr><th>ID</th><th>Type</th><th>Test case</th><th>Expected result</th><th>Actual result</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td>Grab1.0</td><td>Positive</td><td>Lock and unlock the device while ordering GrabFood</td><td>App returns to the order screen</td><td>As expected</td><td><span class="pill pass">Passed</span></td></tr>
+          <tr><td>Grab1.11</td><td>Positive</td><td>Order GrabBike with a promo</td><td>Promo is applied and the app starts finding a driver</td><td>As expected</td><td><span class="pill pass">Passed</span></td></tr>
+          <tr><td>Grab1.3</td><td>Positive</td><td>Turn internet off and on while ordering GrabFood</td><td>App returns to the order screen</td><td>App crashes</td><td><span class="pill fail">Failed</span></td></tr>
+          <tr><td>Grab1.15</td><td>Negative</td><td>Order from a closed restaurant</td><td>Menu is grayed out and cannot be ordered</td><td>User can still place the order</td><td><span class="pill fail">Failed</span></td></tr>
+          <tr><td>Grab1.18</td><td>Positive</td><td>Minimize the app on the account page, then reopen it</td><td>Account page is still shown</td><td>User is logged out</td><td><span class="pill fail">Failed</span></td></tr>
+          <tr><td>Grab1.19</td><td>Positive</td><td>Receive a phone call while inside the app</td><td>App returns to the main menu after the call</td><td>App crashes</td><td><span class="pill fail">Failed</span></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </article>
+
+    <article class="card">
+      <h3>Mentor search: web test cases</h3>
+      <div class="scroll">
+      <table class="tc">
+        <thead><tr><th>ID</th><th>Type</th><th>Test case</th><th>Expected result</th><th>Actual result</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td>TC-03</td><td>Negative</td><td>Enter fewer than 3 characters (e.g., "qa")</td><td>No results; user is prompted to enter more characters</td><td>Results still appear (Bug 1)</td><td><span class="pill fail">Failed</span></td></tr>
+          <tr><td>TC-04</td><td>Negative</td><td>Enter special characters only (e.g., "!@#")</td><td>No results and no error message</td><td>As expected</td><td><span class="pill pass">Passed</span></td></tr>
+          <tr><td>TC-05</td><td>Edge</td><td>Search for a term that matches nothing</td><td>A "no results found" message is shown</td><td>As expected</td><td><span class="pill pass">Passed</span></td></tr>
+          <tr><td>TC-06</td><td>Edge</td><td>Run rapid consecutive searches ("Tes", "Dev", "Des")</td><td>Results load without lag or failures</td><td>Cursor disappears after the keyword is deleted (Bug 2)</td><td><span class="pill fail">Failed</span></td></tr>
+          <tr><td>TC-07</td><td>Edge</td><td>Enter a very long text (50+ characters)</td><td>Handled gracefully, no crash or slowdown</td><td>As expected</td><td><span class="pill pass">Passed</span></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- BUG REPORT -->
+<section id="bug">
+  <h2><span aria-hidden="true">🐞</span> Sample bug reports</h2>
+  <div class="cols">
+
+    <article class="card bug">
+      <h3>Search results still appear when input is fewer than 3 characters</h3>
+      <div class="scroll">
+      <dl>
+        <dt>Description</dt>
+        <dd>When a user searches for mentors by entering fewer than 3 characters (e.g., "qa"), results still appear. The issue also occurs on the mobile website (Infinix Note 40, Android 14, Chrome 131).</dd>
+        <dt>Steps to reproduce</dt>
+        <dd>
+          <ol>
+            <li>Open the website in a browser.</li>
+            <li>Log in or proceed as Guest.</li>
+            <li>Enter fewer than 3 characters in the search field (e.g., "qa").</li>
+            <li>Notice that results still appear.</li>
+          </ol>
+        </dd>
+        <dt>Expected result</dt>
+        <dd>No results are shown, and the system prompts the user to enter more characters.</dd>
+        <dt>Actual result</dt>
+        <dd>Results still appear even though the input is fewer than 3 characters.</dd>
+        <dt>Severity</dt><dd><span class="sev high">Major</span></dd>
+        <dt>Priority</dt><dd><span class="sev high">High</span></dd>
+        <dt>Environment</dt><dd>Windows 11 64-bit, Chrome 131</dd>
+      </dl>
+      </div>
+    </article>
+
+    <article class="card bug">
+      <h3>System freezes when uploading a profile photo in HEIC format</h3>
+      <div class="scroll">
+      <dl>
+        <dt>Description</dt>
+        <dd>The application freezes or gets stuck when a user tries to upload a profile photo in an unsupported format (HEIC).</dd>
+        <dt>Steps to reproduce</dt>
+        <dd>
+          <ol>
+            <li>Log in to the application as an active user.</li>
+            <li>Open the "Edit Profile" menu.</li>
+            <li>Click the "Upload Photo" button.</li>
+            <li>Select a .HEIC file.</li>
+            <li>Click "Save".</li>
+          </ol>
+        </dd>
+        <dt>Expected result</dt>
+        <dd>The system shows an error message that the file format is not supported (e.g., "File format not supported. Use JPG or PNG").</dd>
+        <dt>Actual result</dt>
+        <dd>The application freezes or gets stuck immediately after the HEIC file is uploaded.</dd>
+        <dt>Severity</dt><dd><span class="sev high">Major</span></dd>
+        <dt>Priority</dt><dd><span class="sev mid">Medium</span></dd>
+        <dt>Environment</dt><dd>Web App v1.9.5 (Chrome 124, Windows 11)</dd>
+      </dl>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2><span aria-hidden="true">📬</span> Contact</h2>
+  <p>Open to opportunities as a Quality Assurance Engineer. Reach me via:</p>
+  <a class="btn primary" href="mailto:zakinuhan76@gmail.com" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Email</a>
+  <a class="btn primary" href="https://wa.me/6285156750776" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
+  <a class="btn primary" href="https://www.linkedin.com/in/zaki-nuhan/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
+  <a class="btn primary" href="https://github.com/jekiboi" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
+</section>
+
+<footer class="site">© 2026 Zaki Nuhan</footer>
+</div>
+<button id="to-top" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var nav=document.querySelector("nav"), top=document.getElementById("to-top");
+  function onScroll(){
+    var y=window.scrollY||document.documentElement.scrollTop;
+    nav.classList.toggle("scrolled", y>8);
+    top.classList.toggle("show", y>400);
+  }
+  top.addEventListener("click",function(){window.scrollTo({top:0})});
+  window.addEventListener("scroll",onScroll,{passive:true});
+  onScroll();
+})();
+</script>
+<script>
+(function(){
+  var root=document.documentElement, btn=document.getElementById("theme-toggle");
+  var mq=window.matchMedia("(prefers-color-scheme: dark)");
+  function isDark(){
+    var t=root.getAttribute("data-theme");
+    return t ? t==="dark" : mq.matches;
+  }
+  function render(){
+    var d=isDark();
+    btn.setAttribute("aria-checked", d ? "true" : "false");
+  }
+  btn.addEventListener("click",function(){
+    var next=isDark() ? "light" : "dark";
+    root.setAttribute("data-theme",next);
+    try{localStorage.setItem("theme",next)}catch(e){}
+    render();
+  });
+  render();
+  requestAnimationFrame(function(){btn.classList.add("ready")});
+})();
+</script>
+</body>
+</html>
