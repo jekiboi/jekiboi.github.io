@@ -209,6 +209,13 @@ h2:hover .ico.r svg{animation:wig .5s ease-in-out}
   nav.compact:not(:hover):not(:focus-within):not(.open){max-width:150px}
   nav.compact:not(:hover):not(:focus-within):not(.open) .island-label{width:150px}
 }
+.wip-overlay{background:repeating-linear-gradient(-45deg,color-mix(in srgb,var(--fail) 5%,transparent) 0 10px,color-mix(in srgb,var(--fail) 13%,transparent) 10px 20px)}
+.wip-stamp{display:flex;flex-direction:column;align-items:center;gap:3px;padding:.7rem 1.2rem;font-family:var(--mono);text-transform:none;letter-spacing:0;transform:rotate(-8deg);animation:glitch 4s infinite}
+.err-code{font-size:2.2rem;font-weight:700;line-height:1}
+.err-name{font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.err-sub{font-size:.72rem;font-weight:400;opacity:.85}
+@keyframes glitch{0%,90%,100%{transform:rotate(-8deg) translate(0,0)}92%{transform:rotate(-8deg) translate(-3px,1px)}94%{transform:rotate(-8deg) translate(3px,-1px)}96%{transform:rotate(-8deg) translate(-2px,0)}}
+@media (prefers-reduced-motion:reduce){.wip-stamp{animation:none}}
 </style>
 </head>
 <body>
@@ -347,7 +354,7 @@ h2:hover .ico.r svg{animation:wig .5s ease-in-out}
         <a href="-" tabindex="-1">View on GitHub</a>
       </div>
       <div class="wip-overlay" role="status">
-        <span class="wip-stamp">Still cooking! Check back shortly.</span>
+        <div class="wip-stamp"><span class="err-code">501</span><span class="err-name">Not Implemented</span><span class="err-sub">// this project is still being built</span></div>
       </div>
     </article>
 
@@ -359,7 +366,7 @@ h2:hover .ico.r svg{animation:wig .5s ease-in-out}
         <a href="-" tabindex="-1">View on GitHub</a>
       </div>
       <div class="wip-overlay" role="status">
-        <span class="wip-stamp">Still cooking! Check back shortly.</span>
+        <div class="wip-stamp"><span class="err-code">501</span><span class="err-name">Not Implemented</span><span class="err-sub">// this project is still being built</span></div>
       </div>
     </article>
   </div>
