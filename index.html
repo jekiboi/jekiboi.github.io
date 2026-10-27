@@ -249,6 +249,66 @@ h2:hover .ico.r svg{animation:wig .5s ease-in-out}
 .err-sub{font-size:.72rem;font-weight:400;opacity:.85}
 @keyframes glitch{0%,90%,100%{transform:rotate(-8deg) translate(0,0)}92%{transform:rotate(-8deg) translate(-3px,1px)}94%{transform:rotate(-8deg) translate(3px,-1px)}96%{transform:rotate(-8deg) translate(-2px,0)}}
 @media (prefers-reduced-motion:reduce){.wip-stamp{animation:none}}
+
+/* ===== RESPONSIVE: fit semua ukuran layar (HP, tablet, PC) ===== */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{overflow-x:clip;word-wrap:break-word;overflow-wrap:break-word}
+img,svg,video{max-width:100%}
+.cols{grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr))}
+.cols.one{grid-template-columns:minmax(0,1fr)}
+.groups{grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr))}
+.cols>*,.card,.hero>*,.edu>*,.hero-side>*,.hero-main>*{min-width:0}
+.scroll,.code-body{-webkit-overflow-scrolling:touch}
+@media (max-width:900px){
+  .hero{gap:28px}
+  .edu{grid-template-columns:1fr}
+}
+@media (max-width:720px){
+  .wrap{padding:0 16px}
+  .hero{padding:88px 0 40px;gap:24px}
+  h1{font-size:clamp(1.9rem,9vw,2.6rem);max-width:none}
+  h2{font-size:1.5rem}
+  section{padding:40px 0}
+  .sec-head{flex-wrap:wrap;gap:6px 16px;margin-bottom:24px}
+  .card{padding:16px}
+  .edu-main{padding:18px}
+  .contact-card{padding:22px 18px;border-radius:16px}
+  .contact-top h2{font-size:1.6rem}
+  .contact-actions,.contact-actions .btn{width:100%}
+  .contact-actions .btn{justify-content:center}
+  .btn{padding:12px 18px}
+  .stat{flex-wrap:wrap;gap:4px 16px}
+  .stat b{text-align:right}
+  .run li{padding:6px 14px}
+  .code-body{font-size:.76rem;line-height:1.7}
+  .ln{white-space:pre-wrap;word-break:break-word;padding:0 12px 0 34px;text-indent:-34px}
+  .ln::before{width:22px;padding-right:12px;text-indent:0}
+
+}
+@media (max-width:860px){
+  /* tabel test case jadi kartu bertumpuk (tanpa geser samping) */
+  .tc{min-width:0;margin-top:6px}
+  .tc,.tc tbody,.tc tr,.tc td{display:block;width:100%}
+  .tc thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .tc tr{border:1px solid var(--line);border-radius:10px;padding:6px 12px;margin-bottom:12px;background:var(--bg)}
+  .tc td{display:grid;grid-template-columns:92px minmax(0,1fr);gap:10px;padding:7px 0;border-bottom:1px dashed var(--line)}
+  .tc td:last-child{border-bottom:0}
+  .tc td .pill{justify-self:start;width:auto}
+  .tc td::before{font:500 .72rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:2px}
+  .tc td:nth-child(1)::before{content:"ID"}
+  .tc td:nth-child(2)::before{content:"Type"}
+  .tc td:nth-child(3)::before{content:"Test case"}
+  .tc td:nth-child(4)::before{content:"Expected"}
+  .tc td:nth-child(5)::before{content:"Actual"}
+  .tc td:nth-child(6)::before{content:"Result"}
+}
+@media (max-width:380px){
+  .edu-stats{grid-template-columns:1fr 1fr 1fr;gap:6px}
+  .edu-stats div{padding:8px}
+  .edu-dates{font-size:.72rem}
+  .hero-photo{height:260px}
+  .tag{letter-spacing:.04em}
+}
 </style>
 </head>
 <body>
@@ -285,7 +345,7 @@ h2:hover .ico.r svg{animation:wig .5s ease-in-out}
     <h1>Zaki Nuhan, a <span class="hl">QA Engineer</span> who finds bugs before users do.</h1>
     <p>Over 5 years in manual testing, web app testing, and game testing. Now building web automation skills with Playwright and Python.</p>
     <!-- EDIT: paste your Google Drive share link here -->
-    <div class="ctas"><a class="btn primary" href="https://drive.google.com/file/d/1E5r4cN5AJ5ZuwQB4G6J4h40MOYStDbA2/view?usp=sharing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>View my CV</a>
+    <div class="ctas"><a class="btn primary" href="https://drive.google.com/file/d/1E5r4cN5AJ5ZuwQB4G6J4h40MOYStDbA2/view?usp=sharing" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>View my CV</a>
     <a class="btn ghost" href="#contact">Get in touch</a></div>
     </div>
     <div class="stats" aria-label="Quick facts">
@@ -327,7 +387,7 @@ h2:hover .ico.r svg{animation:wig .5s ease-in-out}
       <span class="tl-dot" aria-hidden="true"></span>
       <time>Mar 2025 – present</time>
       <h3>Customer Success Consultant</h3>
-      <p class="org">amalan international indonesia</p>
+      <p class="org">Amalan International Indonesia</p>
       <ul>
         <li>Handled client inquiries and ongoing support.</li>
         <li>Reported recurring issues and feedback to QA and Development.</li>
@@ -338,7 +398,7 @@ h2:hover .ico.r svg{animation:wig .5s ease-in-out}
       <span class="tl-dot" aria-hidden="true"></span>
       <time>Mar 2022 – Mar 2025</time>
       <h3>Quality Assurance Engineer</h3>
-      <p class="org">amalan international indonesia</p>
+      <p class="org">Amalan International Indonesia</p>
       <ul>
         <li>Manual web testing, API testing, and SQL validation.</li>
         <li>Wrote test plans and test cases; ran UAT.</li>
